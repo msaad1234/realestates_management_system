@@ -1,0 +1,389 @@
+html{
+    direction: rtl;
+}
+
+header{
+    min-height: 40px;
+    display: flex;
+    background: #555;
+    padding: 20px;
+    color: #DDD;
+}
+
+header a,header a:hover{
+    text-decoration: none;
+    color: #DDD;
+}
+
+#container{
+    padding: 0px;
+}
+
+#container #main ul{
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+#container #main ul li{
+    
+    min-height: 250px;
+    vertical-align: center;
+    background: #555;
+    color: #DDD;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    padding: 100px 50px 100px 50px;
+    font-size: 32px;
+    text-align: center;
+    box-shadow: 3px 5px 3px;
+    margin: 20px;
+    display: inline-block;
+    
+}
+
+#container #main ul li:hover{
+    
+    background: #CCC;
+    color: #555;
+
+}
+
+.row{
+    margin: auto;
+}
+
+
+#container #units ul li{
+    
+
+    vertical-align: center;
+    background: #555;
+    color: #DDD;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    font-size: 32px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 3px 5px 3px;
+    margin: 20px;
+    display: inline-block;
+    
+    
+}
+
+#container #units ul li:hover{
+    
+    background: #CCC;
+    color: #555;
+
+}
+
+#container #unit #unit_info{
+    
+    text-align: right;
+    display: block;
+}
+
+#units ul{
+    width: 100%;
+    text-align: right;
+    overflow-x: scroll;
+    white-space:nowrap;
+    
+}
+
+#addNewShopBTN{
+    
+    font-size: 96px;
+    position: absolute;
+    bottom: 72px;
+    left: 40px;
+}
+
+#addShopForm{
+    
+    position: absolute;
+    bottom: 200px;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #EEEEEE;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin: 10px;
+    
+    display: none;
+    
+}
+
+#addShopForm input[type='text']{
+    
+    padding: 20px;
+    margin: 20px 0px 20px 20px;    
+}
+
+#container #shops ul li{
+    
+
+    vertical-align: center;
+    background: #555;
+    color: #DDD;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    font-size: 32px;
+    padding: 50px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    position: relative;
+    
+}
+
+#container #shops ul li:hover{
+    
+    background: #CCC;
+    color: #555;
+
+}
+
+#container #shops ul li .deleteBtn{
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#shop{
+    
+    padding: 20px;
+    
+}
+
+#shopInformationForm{
+    text-align: right;
+    padding: 15px 30px 15px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+#shopInformationForm input[type='submit']{
+    
+    margin: auto;
+    display: block;
+    padding: 10px;
+}
+
+
+#shop .payment{
+    
+    padding: 10px;
+    
+}
+
+#shop .payment .title{
+    
+    display: block;
+    font-size: 24px;
+    
+}
+
+#shop .payment .paymentFeild{
+    display: inline-block;
+}
+
+#shop #documentImages{
+    
+    text-align: center;
+    
+}
+
+#shop #documentImages h4{
+    padding: 10px;
+}
+
+#shop input[type='file']{
+    
+    display: none;
+}
+
+.fileName{
+    
+    background-color: #17a2b8;
+    color: #EEE;
+    margin: 10px auto;
+    padding: 10px;
+    display:inline-block;
+    font-size: 24px;
+    font-family: Tahoma;
+    border: 1px solid #BBB;
+    border-radius: 5px;
+    box-shadow: 1px 2px 7px;    
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#unit{
+    
+    padding: 20px;
+    
+}
+
+#unitInformationForm{
+    text-align: right;
+    padding: 15px 30px 15px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+#unitInformationForm input[type='submit']{
+    
+    margin: auto;
+    display: block;
+    padding: 10px;
+}
+
+
+#unit .payment{
+    
+    padding: 10px;
+    
+}
+
+#unit .payment .title{
+    
+    display: block;
+    font-size: 24px;
+    
+}
+
+#unit .payment .paymentFeild{
+    display: inline-block;
+}
+
+#unit #documentImages{
+    
+    text-align: center;
+    
+}
+
+#unit #documentImages h4{
+    padding: 10px;
+}
+
+#unit input[type='file']{
+    
+    display: none;
+}
+
+#container #contracts ul li{
+    
+
+    vertical-align: center;
+    background: #555;
+    color: #DDD;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    font-size: 32px;
+    padding: 50px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    position: relative;
+    
+}
+
+#container #contracts ul li:hover{
+    
+    background: #CCC;
+    color: #555;
+
+}
+
+#container #shopContracts h3{
+    display: block;
+}
+
+#container #shopContracts #section{
+    
+    text-align: center;
+    display: block;
+    
+}
+
+#container #shopContracts #section form{
+    margin: 10px;
+}
+
+#container #shopContracts #section form input{
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#container #shopContracts #section li{
+ 
+    padding: 10px;
+    margin: 10px;
+    background: #555;
+    color: #DDD;
+    border-radius: 10px;
+    font-family: tahoma;
+    font-size: 18px;
+    list-style-type: none;
+    position: relative;
+    
+}
+
+#container #shopContracts #section li .operations{
+    
+    position: absolute;
+    left: 10px;
+    bottom: 3px;
+    
+}
+
+#container #shopContracts #section li p{
+    text-align: right;
+    font-family: tahoma;
+    font-size: 24px;
+}
