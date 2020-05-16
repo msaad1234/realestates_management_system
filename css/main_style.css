@@ -123,6 +123,41 @@ header a,header a:hover{
     margin: 20px 0px 20px 20px;    
 }
 
+#addContractForm{
+    
+    position: absolute;
+    bottom: 200px;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #EEEEEE;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin: 10px;
+    
+    display: none;
+    
+}
+
+#addContractForm input[type='text']{
+    
+    padding: 20px;
+    margin: 20px 0px 20px 20px;    
+}
+
+#addContractForm span{
+    display: block !important;
+    margin: 10px;
+}
+
+#addNewContractBTN{
+    
+    font-size: 96px;
+    position: absolute;
+    bottom: 72px;
+    left: 40px;
+}
+
 #container #shops ul li{
     
 
@@ -341,12 +376,15 @@ header a,header a:hover{
 
 #container #shopContracts h3{
     display: block;
+    width: 100%;
+    text-align: right;
 }
 
 #container #shopContracts #section{
     
     text-align: center;
     display: block;
+    margin: auto;
     
 }
 
@@ -383,6 +421,62 @@ header a,header a:hover{
 }
 
 #container #shopContracts #section li p{
+    text-align: right;
+    font-family: tahoma;
+    font-size: 24px;
+}
+
+
+
+
+
+#container #unitContracts h3{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+#container #unitContracts #section{
+    
+    text-align: center;
+    display: block;
+    margin: auto;
+    
+}
+
+#container #unitContracts #section form{
+    margin: 10px;
+}
+
+#container #unitContracts #section form input{
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#container #unitContracts #section li{
+ 
+    padding: 10px;
+    margin: 10px;
+    background: #555;
+    color: #DDD;
+    border-radius: 10px;
+    font-family: tahoma;
+    font-size: 18px;
+    list-style-type: none;
+    position: relative;
+    
+}
+
+#container #unitContracts #section li .operations{
+    
+    position: absolute;
+    left: 10px;
+    bottom: 3px;
+    
+}
+
+#container #unitContracts #section li p{
     text-align: right;
     font-family: tahoma;
     font-size: 24px;

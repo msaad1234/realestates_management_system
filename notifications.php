@@ -6,15 +6,19 @@ include_once "page/header.php";
 ?>
 
 
-<div id="shopContracts" class="row col-sm-12">
+<div id="unitContracts" class="row col-sm-12">
 
-            <h3>العقود</h3><br>
+            <h3>التنبيهات</h3><br>
 
     <div id="section" class="col-12 col-md-7 col-lg-5">
         
         <?php
         
-        $sql = "SELECT * FROM contracts WHERE type='shop'";
+        
+        date_default_timezone_set('Asia/Riyadh');
+        $current_date = date("Y-m-d");        
+        
+        $sql = "SELECT *, (DATE(NOW()) - INTERVAL 7 DAY) AS diff FROM shops_payments WHERE due_date >= (DATE(NOW) - INTERVAL 7 DAYS)";
         $query = mysqli_query($connect, $sql);
         
         ?>
@@ -25,16 +29,13 @@ include_once "page/header.php";
             
             while($row = mysqli_fetch_array($query)){
                 
-                $name = $row['name'];
-                $word_file_name = $row['word_file_name'];
-                $pdf_file_name = $row['pdf_file_name'];
                 
                 ?>
             <li>
-                <p><? echo $name ?></p>
+                <p><? echo $row['due_date'] ?></p>
                 <div class="operations">
-                    <a href="files/shopsContracts/word_files/<? echo $word_file_name; ?>"><span class="btn btn-primary">تحميل العقد بصيغة word</span></a>
-                    <a href="files/shopsContracts/pdf_files/<? echo $pdf_file_name; ?>"><span class="btn btn-primary">تحميل العقد بصيغة pdf</span></a>
+                    <a href="files/unitsContracts/word_files/<? echo ""; ?>"><span class="btn btn-primary">تحميل العقد بصيغة word</span></a>
+                    <a href="files/unitsContracts/pdf_files/<? echo ""; ?>"><span class="btn btn-primary">تحميل العقد بصيغة pdf</span></a>
                 </div>
             </li>
             
@@ -116,18 +117,18 @@ if(isset($_POST['addContractBTN'])){
 //    }
     
     
-    $sql = "INSERT INTO contracts (name, word_file_name, pdf_file_name, type) VALUES ('$contractName','$wordName','$pdfName','shop')";
+    $sql = "INSERT INTO contracts (name, word_file_name, pdf_file_name, type) VALUES ('$contractName','$wordName','$pdfName','unit')";
     
     $query = mysqli_query($connect, $sql);
     
     if($query){
         
         if(isset($_FILES['wordFile'])){
-        move_uploaded_file($wordTmp, "files/shopsContracts/word_files/".iconv('utf-8','windows-1256',$wordName));
+        move_uploaded_file($wordTmp, "files/unitsContracts/word_files/".iconv('utf-8','windows-1256',$wordName));
         }
         
         if(isset($_FILES['pdfFile'])){
-        move_uploaded_file($pdfTmp, "files/shopsContracts/pdf_files/".iconv('utf-8','windows-1256',$pdfName));
+        move_uploaded_file($pdfTmp, "files/unitsContracts/pdf_files/".iconv('utf-8','windows-1256',$pdfName));
         }
         
     }else{
