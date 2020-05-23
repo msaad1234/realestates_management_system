@@ -1,110 +1,150 @@
-html{
+html {
     direction: rtl;
 }
 
-header{
+header {
     min-height: 40px;
     display: flex;
-    background: #555;
-    padding: 20px;
-    color: #DDD;
+    background: #2694D2;
+    padding: 30px 0px;
+    font-size: 32px;
+    border-bottom: 1px dashed #333;
+    box-shadow: 2px 1px 16px 0px;
 }
 
-header a,header a:hover{
+header #rightSection {
+    text-align: right;
+}
+
+header #leftSection {
+    text-align: left;
+}
+
+a,
+a:hover {
     text-decoration: none;
+    color: #f1f1f1;
+}
+
+header a,
+header a:hover {
+    text-decoration: none;
+    color: #FFF;
+}
+
+ul li {
+    background: #444;
     color: #DDD;
+    list-style-type: none;
+    font-size: 32px;
+    border: 1px solid #555;
 }
 
-#container{
-    padding: 0px;
+ul li:hover {
+    background: #DDD;
+    color: #444;
+    box-shadow: 3px 5px 3px;
 }
 
-#container #main ul{
+#page-title {
     width: 100%;
+    text-align: center;
+    z-index: -10;
+    font-weight: 100;
+}
+
+#page-title span {
+    font-size: 32px;
+    border-right: 1px solid #AAA;
+    border-left: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 45px;
+    display: inline-block;
+    box-shadow: -1px 4px 20px 0px;
+}
+
+#container {
+    padding: 0px;
+    height: 100%;
+    position: relative;
+}
+
+footer {
+    background: #2694D2;
+    min-height: 100px;
+    position: absolute;
+    bottom: 0;
+}
+
+div#list {
+    width: 100%;
+}
+
+#container #main ul {
     padding: 0;
     text-align: center;
-}
-
-#container #main ul li{
-    
-    min-height: 250px;
-    vertical-align: center;
-    background: #555;
-    color: #DDD;
-    border: 1px solid #ccc;
-    list-style-type: none;
-    padding: 100px 50px 100px 50px;
-    font-size: 32px;
-    text-align: center;
-    box-shadow: 3px 5px 3px;
-    margin: 20px;
-    display: inline-block;
-    
-}
-
-#container #main ul li:hover{
-    
-    background: #CCC;
-    color: #555;
-
-}
-
-.row{
     margin: auto;
 }
 
+#container #main ul li {
+    padding: 70px 0px;
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+}
 
-#container #units ul li{
-    
-
-    vertical-align: center;
-    background: #555;
+#notification_icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #E8494D;
     color: #DDD;
-    border: 1px solid #ccc;
-    list-style-type: none;
-    font-size: 32px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.row {
+    margin: auto;
+}
+
+#container #units ul li {
+    vertical-align: center;
     padding: 50px;
     text-align: center;
     box-shadow: 3px 5px 3px;
     margin: 20px;
     display: inline-block;
-    
-    
 }
 
-#container #units ul li:hover{
-    
-    background: #CCC;
-    color: #555;
-
-}
-
-#container #unit #unit_info{
-    
+#container #unit #unit_info {
     text-align: right;
     display: block;
 }
 
-#units ul{
+#units ul {
     width: 100%;
     text-align: right;
     overflow-x: scroll;
-    white-space:nowrap;
-    
+    white-space: nowrap;
 }
 
-#addNewShopBTN{
-    
+#addNewShopBTN,
+#addNewContractBTN {
     font-size: 96px;
-    position: absolute;
-    bottom: 72px;
-    left: 40px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 50px;
 }
 
-#addShopForm{
-    
-    position: absolute;
-    bottom: 200px;
+#addShopForm {
+    position: fixed;
+    bottom: 120px;
     left: 0;
     padding: 10px;
     text-align: center;
@@ -112,21 +152,17 @@ header a,header a:hover{
     border: 1px solid #555;
     border-radius: 10px;
     margin: 10px;
-    
     display: none;
-    
 }
 
-#addShopForm input[type='text']{
-    
+#addShopForm input[type='text'] {
     padding: 20px;
-    margin: 20px 0px 20px 20px;    
+    margin: 20px 0px 20px 20px;
 }
 
-#addContractForm{
-    
-    position: absolute;
-    bottom: 200px;
+#addContractForm {
+    position: fixed;
+    bottom: 120px;
     left: 0;
     padding: 10px;
     text-align: center;
@@ -134,272 +170,240 @@ header a,header a:hover{
     border: 1px solid #555;
     border-radius: 10px;
     margin: 10px;
-    
     display: none;
-    
 }
 
-#addContractForm input[type='text']{
-    
+#addContractForm input[type='text'] {
     padding: 20px;
-    margin: 20px 0px 20px 20px;    
+    margin: 20px 0px 20px 20px;
 }
 
-#addContractForm span{
+#addContractForm span {
     display: block !important;
     margin: 10px;
 }
 
-#addNewContractBTN{
-    
-    font-size: 96px;
-    position: absolute;
-    bottom: 72px;
-    left: 40px;
+#container #shops {
+    overflow: hidden;
 }
 
-#container #shops ul li{
-    
+#container #shops ul {
+    text-align: center;
+    padding: 0px;
+}
 
+#container #shops ul li {
     vertical-align: center;
-    background: #555;
-    color: #DDD;
-    border: 1px solid #ccc;
-    list-style-type: none;
-    font-size: 32px;
     padding: 50px;
     text-align: center;
     margin: 20px;
     display: inline-block;
     position: relative;
-    
 }
 
-#container #shops ul li:hover{
-    
-    background: #CCC;
-    color: #555;
-
+#container #shops ul li:hover .title {
+    color: #000 !important;
 }
 
-#container #shops ul li .deleteBtn{
-    
+#container #shops ul li .deleteBtn {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    border-radius: 0px;
+    color: red;
+    background: #DDD;
 }
 
-#shop{
-    
-    padding: 20px;
-    
-}
+#shop {}
 
-#shopInformationForm{
+#shopInformationForm {
     text-align: right;
     padding: 15px 30px 15px 15px;
     margin-right: auto;
     margin-left: auto;
-    
 }
 
-#shopInformationForm input[type='submit']{
-    
+#shopInformationForm input[type='submit'] {
     margin: auto;
     display: block;
     padding: 10px;
 }
 
-
-#shop .payment{
-    
+#shop .payment {
     padding: 10px;
-    
 }
 
-#shop .payment .title{
-    
+#shop .payment .title {
     display: block;
     font-size: 24px;
-    
 }
 
-#shop .payment .paymentFeild{
+#shop .payment .paymentFeild {
     display: inline-block;
 }
 
-#shop #documentImages{
-    
+#shop #documentImages {
     text-align: center;
-    
 }
 
-#shop #documentImages h4{
+#shop #documentImages .uploadPDFSection {
+    margin-top: 25px;
+}
+
+#shop #documentImages h4 {
     padding: 10px;
 }
 
-#shop input[type='file']{
-    
+#shop input[type='file'] {
     display: none;
 }
 
-.fileName{
-    
+.fileName {
     background-color: #17a2b8;
     color: #EEE;
     margin: 10px auto;
     padding: 10px;
-    display:inline-block;
+    display: inline-block;
     font-size: 24px;
     font-family: Tahoma;
     border: 1px solid #BBB;
     border-radius: 5px;
-    box-shadow: 1px 2px 7px;    
+    box-shadow: 1px 2px 7px;
 }
+
 
 /* The Modal (background) */
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
+
 
 /* Modal Content/Box */
+
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
 }
 
+
 /* The Close Button */
+
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+#unit {}
 
-#unit{
-    
-    padding: 20px;
-    
+#unit #documentImages .uploadPDFSection {
+    margin-top: 25px;
 }
 
-#unitInformationForm{
+#unitInformationForm {
     text-align: right;
     padding: 15px 30px 15px 15px;
     margin-right: auto;
     margin-left: auto;
-    
 }
 
-#unitInformationForm input[type='submit']{
-    
+#unitInformationForm input[type='submit'] {
     margin: auto;
     display: block;
     padding: 10px;
 }
 
-
-#unit .payment{
-    
+#unit .payment {
     padding: 10px;
-    
 }
 
-#unit .payment .title{
-    
+#unit .payment .title {
     display: block;
     font-size: 24px;
-    
 }
 
-#unit .payment .paymentFeild{
+#unit .payment .paymentFeild {
     display: inline-block;
 }
 
-#unit #documentImages{
-    
+#unit #documentImages {
     text-align: center;
-    
 }
 
-#unit #documentImages h4{
+#unit #documentImages h4 {
     padding: 10px;
 }
 
-#unit input[type='file']{
-    
+#unit input[type='file'] {
     display: none;
 }
 
-#container #contracts ul li{
-    
+#container #contracts ul {
+    text-align: center;
+    padding: 0px;
+}
 
-    vertical-align: center;
-    background: #555;
-    color: #DDD;
-    border: 1px solid #ccc;
-    list-style-type: none;
-    font-size: 32px;
+#container #contracts ul li {
     padding: 50px;
     text-align: center;
     margin: 20px;
     display: inline-block;
     position: relative;
-    
 }
 
-#container #contracts ul li:hover{
-    
-    background: #CCC;
-    color: #555;
-
-}
-
-#container #shopContracts h3{
+#container #shopContracts h3 {
     display: block;
     width: 100%;
     text-align: right;
 }
 
-#container #shopContracts #section{
-    
+#container #shopContracts #section {
     text-align: center;
     display: block;
     margin: auto;
-    
 }
 
-#container #shopContracts #section form{
+#container #shopContracts #section form {
     margin: 10px;
 }
 
-#container #shopContracts #section form input{
+#container #shopContracts #section form input {
     width: auto;
     display: inline-block;
     vertical-align: middle;
 }
 
-#container #shopContracts #section li{
- 
+#container #shopContracts #section li {
     padding: 10px;
     margin: 10px;
     background: #555;
@@ -409,53 +413,42 @@ header a,header a:hover{
     font-size: 18px;
     list-style-type: none;
     position: relative;
-    
 }
 
-#container #shopContracts #section li .operations{
-    
-    position: absolute;
-    left: 10px;
-    bottom: 3px;
-    
+#container #shopContracts #section li .operations span,
+#container #unitContracts #section li .operations span {
+    margin-top: 10px;
 }
 
-#container #shopContracts #section li p{
+#container #shopContracts #section li p {
     text-align: right;
     font-family: tahoma;
     font-size: 24px;
 }
 
-
-
-
-
-#container #unitContracts h3{
+#container #unitContracts h3 {
     display: block;
     width: 100%;
     text-align: right;
 }
 
-#container #unitContracts #section{
-    
+#container #unitContracts #section {
     text-align: center;
     display: block;
     margin: auto;
-    
 }
 
-#container #unitContracts #section form{
+#container #unitContracts #section form {
     margin: 10px;
 }
 
-#container #unitContracts #section form input{
+#container #unitContracts #section form input {
     width: auto;
     display: inline-block;
     vertical-align: middle;
 }
 
-#container #unitContracts #section li{
- 
+#container #unitContracts #section li {
     padding: 10px;
     margin: 10px;
     background: #555;
@@ -465,19 +458,58 @@ header a,header a:hover{
     font-size: 18px;
     list-style-type: none;
     position: relative;
-    
 }
 
-#container #unitContracts #section li .operations{
-    
-    position: absolute;
-    left: 10px;
-    bottom: 3px;
-    
-}
-
-#container #unitContracts #section li p{
+#container #unitContracts #section li p {
     text-align: right;
     font-family: tahoma;
     font-size: 24px;
+}
+
+#container #notifications h3 {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+#container #notifications #section {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+#container #notifications #section li {
+    padding: 10px;
+    margin: 10px;
+    background: #555;
+    color: #DDD;
+    border-radius: 10px;
+    font-family: tahoma;
+    font-size: 18px;
+    list-style-type: none;
+    position: relative;
+    text-align: right;
+}
+
+#container #notifications #section li .operations {
+    text-align: center;
+}
+
+#container #notifications #section li .operations span {
+    margin-top: 10px;
+}
+
+#container #notifications #section li p {
+    text-align: right;
+    font-family: tahoma;
+    font-size: 24px;
+}
+
+#container #notifications .rightSection {
+    display: inline-block;
+}
+
+#container #notifications .leftSection {
+    display: inline-block;
+    vertical-align: top;
 }

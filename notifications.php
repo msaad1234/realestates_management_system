@@ -1,146 +1,102 @@
 <?php
 
-include_once "core/config.php";
 include_once "page/header.php";
+
+if (!isset($_SESSION['preLogin']))
+    return;
 
 ?>
 
 
-<div id="unitContracts" class="row col-sm-12">
+<div id="notifications" class="row col-sm-12">
 
-            <h3>التنبيهات</h3><br>
+    <div id="page-title"><span>التنبيهات</span></div>
 
-    <div id="section" class="col-12 col-md-7 col-lg-5">
-        
+    <div id="section" class="col-12 col-md-10 col-lg-5">
+
         <?php
-        
-        
-        date_default_timezone_set('Asia/Riyadh');
-        $current_date = date("Y-m-d");        
-        
-        $sql = "SELECT *, (DATE(NOW()) - INTERVAL 7 DAY) AS diff FROM shops_payments WHERE due_date >= (DATE(NOW) - INTERVAL 7 DAYS)";
-        $query = mysqli_query($connect, $sql);
-        
+
+
+        //        date_default_timezone_set('Asia/Riyadh');
+        //        $current_date = date("Y-m-d");        
+
+        $payments_tables = ['units_payments', 'shops_payments'];
+
+
+        for ($i = 0; $i < sizeof($payments_tables); $i++) {
+
+            $list_name = substr($payments_tables[$i], 0, strpos($payments_tables[$i], '_'));
+            $element_name = substr($list_name, 0, strlen($list_name) - 1);
+
+            $sql = "SELECT * FROM " . $payments_tables[$i] . " as payments JOIN $list_name ON " . $element_name . "_id = $list_name.id WHERE due_date >= DATE_SUB(CURDATE(), INTERVAL 5 DAY)";
+            $query = mysqli_query($connect, $sql);
+
         ?>
-        
-        <ul>
-        
-            <?php
-            
-            while($row = mysqli_fetch_array($query)){
-                
-                
+
+            <ul>
+
+                <?php
+
+                while ($row = mysqli_fetch_array($query)) {
+
+                    $renter_id = $row['renter_id'];
+                    $name = $row['name'];
+                    $payment_order = $row['payment_order'];
+
+                    $shopOrUnitLabel = $element_name == "shop" ? 'اسم المحل : ' : 'رقم الوحدة : ';
+
+                    $sql_renters = "SELECT * FROM renters WHERE id = '$renter_id'";
+                    $query_renters = mysqli_query($connect, $sql_renters);
+                    $row_renters = mysqli_fetch_array($query_renters);
+                    $renter_name = $row_renters['name'];
                 ?>
-            <li>
-                <p><? echo $row['due_date'] ?></p>
-                <div class="operations">
-                    <a href="files/unitsContracts/word_files/<? echo ""; ?>"><span class="btn btn-primary">تحميل العقد بصيغة word</span></a>
-                    <a href="files/unitsContracts/pdf_files/<? echo ""; ?>"><span class="btn btn-primary">تحميل العقد بصيغة pdf</span></a>
-                </div>
-            </li>
-            
-            <?php
-                
-            }
-            
-            ?>
-            
-        </ul>
-        
+                    <a href="<? echo $element_name . ".php?id=" . $row['id']; ?>">
+                        <li>
+                            <div class="rightSection col-12 col-md-6">
+                                <p class="renterName"><? echo $renter_name; ?></p>
+                                <p class="shopName"><? echo $shopOrUnitLabel . $name; ?></p>
+                            </div>
+                            <div class="leftSection col-12 col-md-6">
+                                <p class="paymentOrder">رقم الدفعة : <? echo $payment_order; ?></p>
+                            </div>
+                            <div class="operations">
+                                <a href="files/images/<? echo $row['contract_image']; ?>"><span class="btn btn-primary col-12 col-md-5">تحميل صورة العقد</span></a>
+                                <a href="files/unitsContracts/pdf_files/<? echo $row['contract_pdf']; ?>"><span class="btn btn-primary col-12 col-md-5">تحميل العقد بصيغة pdf</span></a>
+                            </div>
+                        </li>
+                    </a>
+
+                <?php
+
+                }
+
+                ?>
+
+            </ul>
+
+        <?php
+
+        }
+
+        ?>
+
+
     </div>
-    
+
 
 </div>
 
 
 <script>
 
-    $(document).ready(function(){
-        
-        
-        $("#addContractFormBTN").click(function(){
-                
-                
-                $("#addContractForm").slideToggle(500);
-                
-            });
-        
-        
-        $("#uplaodWord").click(function(){
-            $("input[name='wordFile']").click();
-        })
-        
-        $("#uploadPdf").click(function(){
-            $("input[name='pdfFile']").click();
-        })
-        
-        
-    })
-
-    
 
 </script>
-
-<form class="from-group col-10 col-md-4" id="addContractForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-    <input type="text" name="contractName" placeholder="اسم العقد" class="form-control" />
-    <input type="file" name="wordFile" class="form-control" style="display: none;" />
-    <input type="file" name="pdfFile" class="form-control" style="display: none;" />
-    <span id="uplaodWord" class="btn btn-primary" >رفع ملف الوورد <i class="fas fa-upload"></i></span>
-    <span id="uploadPdf" class="btn btn-primary" >رفع ملف pdf <i class="fas fa-upload"></i></span>
-    <input type="submit" name="addContractBTN" value="إضافة" class="btn btn-primary" />
-</form>
-
-
-        <a id="addContractFormBTN"><i id="addNewContractBTN" class="fas fa-plus-circle"></i></a>
 
 
 
 <?php
 
 
-if(isset($_POST['addContractBTN'])){
-    
-    
-    $contractName = $_POST['contractName'];
-    
-    $wordName = $_FILES['wordFile']['name'];
-    $wordTmp = $_FILES['wordFile']['tmp_name'];
-    
-    $pdfName = $_FILES['pdfFile']['name'];
-    $pdfTmp = $_FILES['pdfFile']['tmp_name'];
-    
-    
-//    if($word_name != "" && $pdf_name != ""){
-//        
-//        
-//        
-//    }
-    
-    
-    $sql = "INSERT INTO contracts (name, word_file_name, pdf_file_name, type) VALUES ('$contractName','$wordName','$pdfName','unit')";
-    
-    $query = mysqli_query($connect, $sql);
-    
-    if($query){
-        
-        if(isset($_FILES['wordFile'])){
-        move_uploaded_file($wordTmp, "files/unitsContracts/word_files/".iconv('utf-8','windows-1256',$wordName));
-        }
-        
-        if(isset($_FILES['pdfFile'])){
-        move_uploaded_file($pdfTmp, "files/unitsContracts/pdf_files/".iconv('utf-8','windows-1256',$pdfName));
-        }
-        
-    }else{
-        
-        echo "There is problem in inserting the files";
-    }
-    
-    
-}
-
-
 include_once "page/footer.php";
 
 ?>
-

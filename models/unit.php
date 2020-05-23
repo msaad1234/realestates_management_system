@@ -15,45 +15,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
     $upload_mandate = $_FILE['upload_mandate'];   
     
     
-    $upload_contract_name = $_FILES['upload_contract']['name'];
-    $upload_contract_tmp = $_FILES['upload_contract']['tmp_name'];
     
-    $upload_id_name = $_FILES['upload_id']['name'];
-    $upload_id_tmp = $_FILES['upload_id']['tmp_name'];
-    
-    $upload_mandate_name = $_FILES['upload_mandate']['name'];
-    $upload_mandate_tmp = $_FILES['upload_mandate']['tmp_name'];
-        
-    
-    $unit_id = $_GET['id'];
-    
-        $imagesSqlText = "";
-    
-    
-        if($upload_contract_name !== ""){
-            $imagesSqlText .= ", contract_image='$upload_contract_name'";
-                 if(isset($_FILES['upload_contract'])){
-                     
-                     move_uploaded_file($upload_contract_tmp,"images/".iconv('utf-8','windows-1256', $upload_contract_name));
-                 }
-        }
+    $upload_contract_image_name = $_FILES['upload_contract_image']['name'];
+    $upload_contract_image_tmp = $_FILES['upload_contract_image']['tmp_name'];
+    $upload_contract_pdf_name = $_FILES['upload_contract_pdf']['name'];
+    $upload_contract_pdf_tmp = $_FILES['upload_contract_pdf']['tmp_name'];
 
-        
-        if($upload_id_name !== ""){
-            $imagesSqlText .= ", id_image='$upload_id_name'";
-            if(isset($_FILES['upload_contract'])){
-                     
-                     move_uploaded_file($upload_id_tmp,"images/".iconv('utf-8','windows-1256', $upload_id_name));
-                 }
+    $upload_id_image_name = $_FILES['upload_id_image']['name'];
+    $upload_id_image_tmp = $_FILES['upload_id_image']['tmp_name'];
+    $upload_id_pdf_name = $_FILES['upload_id_pdf']['name'];
+    $upload_id_pdf_tmp = $_FILES['upload_id_pdf']['tmp_name'];
+
+    $upload_mandate_image_name = $_FILES['upload_mandate_image']['name'];
+    $upload_mandate_image_tmp = $_FILES['upload_mandate_image']['tmp_name'];
+    $upload_mandate_pdf_name = $_FILES['upload_mandate_pdf']['name'];
+    $upload_mandate_pdf_tmp = $_FILES['upload_mandate_pdf']['tmp_name'];
+
+
+
+
+    $shop_id = $_GET['id'];
+
+    $imagesSqlText = "";
+
+
+    if ($upload_contract_image_name !== "") {
+        $imagesSqlText .= ", contract_image='$upload_contract_image_name'";
+        if (isset($_FILES['upload_contract_image'])) {
+
+            move_uploaded_file($upload_contract_image_tmp, "images/" . iconv('utf-8', 'windows-1256', $upload_contract_image_name));
         }
-        
-        if($upload_mandate_name !== ""){
-            $imagesSqlText .= ", mandate_image='$upload_mandate_name'";
-            if(isset($_FILES['upload_contract'])){
-                     
-                     move_uploaded_file($upload_mandate_tmp,"images/".iconv('utf-8','windows-1256', $upload_mandate_name));
-                 }
+    }
+
+    if ($upload_contract_pdf_name !== "") {
+        $imagesSqlText .= ", contract_pdf='$upload_contract_pdf_name'";
+        if (isset($_FILES['upload_contract_pdf'])) {
+
+            move_uploaded_file($upload_contract_pdf_tmp, "files/unitsContracts/pdf_files/" . iconv('utf-8', 'windows-1256',$upload_contract_pdf_name));
         }
+    }
+
+
+    if ($upload_id_image_name !== "") {
+        $imagesSqlText .= ", id_image='$upload_id_image_name'";
+        if (isset($_FILES['upload_id_image'])) {
+
+            move_uploaded_file($upload_id_image_tmp, "images/" . iconv('utf-8', 'windows-1256', $upload_id_image_name));
+        }
+    }
+    if ($upload_id_pdf_name !== "") {
+        $imagesSqlText .= ", id_pdf='$upload_id_pdf_name'";
+        if (isset($_FILES['upload_id_pdf'])) {
+
+            move_uploaded_file($upload_id_pdf_tmp, "files/unitsContracts/pdf_files/" . iconv('utf-8', 'windows-1256', $upload_id_pdf_name));
+        }
+    }
+
+
+    if ($upload_mandate_image_name !== "") {
+        $imagesSqlText .= ", mandate_image='$upload_mandate_image_name'";
+        if (isset($_FILES['upload_mandate_image'])) {
+
+            move_uploaded_file($upload_mandate_image_tmp, "images/" . iconv('utf-8', 'windows-1256', $upload_mandate_image_name));
+        }
+    }
+    if ($upload_mandate_pdf_name !== "") {
+        $imagesSqlText .= ", mandate_pdf='$upload_mandate_pdf_name'";
+        if (isset($_FILES['upload_mandate_pdf'])) {
+
+            move_uploaded_file($upload_mandate_pdf_tmp, "files/unitsContracts/pdf_files/" . iconv('utf-8', 'windows-1256', $upload_mandate_pdf_name));
+        }
+    }
     
     
     $sql = "UPDATE units SET renter_id='$renter_SSN' , renting_price='$renting_price'".$imagesSqlText." WHERE id='$unit_id'";
