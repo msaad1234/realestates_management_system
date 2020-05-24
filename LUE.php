@@ -17,7 +17,7 @@ function getUserIpAddr()
 }
 
 
-if(isset($_GET['enter']) && $_GET['enter'] == "dargon_user_admin"){
+if(isset($_GET['enter']) && $_GET['enter'] == "dragon_user_admin"){
 
 
     $sql_select = "SELECT device_ip_address FROM allowedips WHERE device_ip_address='".getUserIpAddr()."'";
@@ -32,7 +32,7 @@ $query = mysqli_query($connect, $sql);
 if($query){
     echo "Data is inserted";
 }else{
-    echo "Data is not inserted for login";
+    echo "Data is not inserted for login : ".$sql;
 }
 
 }

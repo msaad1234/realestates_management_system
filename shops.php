@@ -72,15 +72,13 @@ if (isset($_POST['addShopBTN'])) {
 
 
 
-    $sql = "INSERT INTO shops (name, renting_price, payment_id, contract_image, id_image, mandate_image) values ('" . $_POST['shopName'] . "','','','','','')";
+    $sql = "INSERT INTO shops (name) values ('" . $_POST['shopName'] . "')";
 
     if ($query = mysqli_query($connect, $sql)) {
 
 ?>
 
-        <script>
-            window.location.href = window.location.href;
-        </script>
+        <meta http-equiv="Refresh" content="0;url=<?php echo $_SERVER['PHP_SELF']; ?>" >
 
 <?php
     } else {

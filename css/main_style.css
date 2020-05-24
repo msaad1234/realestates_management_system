@@ -66,15 +66,24 @@ ul li:hover {
 
 #container {
     padding: 0px;
-    height: 100%;
+    min-height: 100%;
     position: relative;
+    padding-bottom: 150px;
 }
 
 footer {
     background: #2694D2;
     min-height: 100px;
-    position: absolute;
+    width: 100%;
     bottom: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+footer p {
+    text-align: center;
+    font-size: 24px;
+    color: #ddd;
 }
 
 div#list {
@@ -117,6 +126,7 @@ div#list {
     box-shadow: 3px 5px 3px;
     margin: 20px;
     display: inline-block;
+    position: relative;
 }
 
 #container #unit #unit_info {
@@ -132,7 +142,8 @@ div#list {
 }
 
 #addNewShopBTN,
-#addNewContractBTN {
+#addNewContractBTN,
+#addNewUnitBTN {
     font-size: 96px;
     position: fixed;
     bottom: 20px;
@@ -155,7 +166,8 @@ div#list {
     display: none;
 }
 
-#addShopForm input[type='text'] {
+#addShopForm input[type='text'],
+#addUnitForm input[type='text'] {
     padding: 20px;
     margin: 20px 0px 20px 20px;
 }
@@ -205,7 +217,8 @@ div#list {
     color: #000 !important;
 }
 
-#container #shops ul li .deleteBtn {
+#container #shops ul li .deleteBtn,
+#container #units ul li .deleteBtn {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -325,6 +338,19 @@ div#list {
 }
 
 #unit {}
+
+#addUnitForm {
+    position: fixed;
+    bottom: 120px;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #EEEEEE;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin: 10px;
+    display: none;
+}
 
 #unit #documentImages .uploadPDFSection {
     margin-top: 25px;
