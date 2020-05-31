@@ -4,16 +4,18 @@ include_once "page/header.php";
 if (!isset($_SESSION['preLogin']))
     return;
 
+    $shop_id = $_GET['id'];
+
 ?>
 
 
 <div id="shop">
 
     <div id="page-title"><span>معلومات المحل</span></div><br>
+    <div id="print-info" class="col-12" style="text-align: center;"><a href="info.php?type=shop&id=<? echo $shop_id; ?>"><span class="btn btn-success col-5">إظهار التقرير</span></a></div>
 
     <?php
 
-    $shop_id = $_GET['id'];
 
     $sql_shop = "SELECT * FROM shops WHERE id='$shop_id'";
     $query_shop = mysqli_query($connect, $sql_shop);

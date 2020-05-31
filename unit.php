@@ -3,16 +3,17 @@
 include_once "page/header.php";
 if(!isset($_SESSION['preLogin']))
 return;
+
+$unit_id = $_GET['id'];
 ?>
 
 
 <div id="unit">
 
 <div id="page-title"><span>معلومات الوحدة</span></div><br>
+<div id="print-info" class="col-12" style="text-align: center;"><a href="info.php?type=unit&id=<? echo $unit_id; ?>"><span class="btn btn-success col-5">إظهار التقرير</span></a></div>
 
     <?php
-
-    $unit_id = $_GET['id'];
 
     $sql_unit = "SELECT * FROM units WHERE id='$unit_id'";
     $query_unit = mysqli_query($connect, $sql_unit);

@@ -24,7 +24,7 @@ if (!isset($_SESSION['preLogin']))
 
                     <a class="title" href="shop.php?id=<?php echo $row['id']; ?>" class="col-10 col-md-3">
                         <?php echo $row['name']; ?>
-                        <a href="delete.php?type=shops&id=<? echo $row['id']; ?>" class="btn btn-secondary deleteBtn">حدف</a>
+                        <a href="delete.php?type=shops&id=<? echo $row['id']; ?>" class="btn btn-secondary deleteBtn">حذف</a>
                     </a>
                 </li>
 
@@ -72,7 +72,7 @@ if (isset($_POST['addShopBTN'])) {
 
 
 
-    $sql = "INSERT INTO shops (name) values ('" . $_POST['shopName'] . "')";
+    $sql = "INSERT INTO `shops` (`name`) values ('" . $_POST['shopName'] . "')";
 
     if ($query = mysqli_query($connect, $sql)) {
 

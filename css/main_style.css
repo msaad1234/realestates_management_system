@@ -1,541 +1,634 @@
-html {
-    direction: rtl;
-}
-
-header {
-    min-height: 40px;
-    display: flex;
-    background: #2694D2;
-    padding: 30px 0px;
-    font-size: 32px;
-    border-bottom: 1px dashed #333;
-    box-shadow: 2px 1px 16px 0px;
-}
-
-header #rightSection {
-    text-align: right;
-}
-
-header #leftSection {
-    text-align: left;
-}
-
-a,
-a:hover {
-    text-decoration: none;
-    color: #f1f1f1;
-}
-
-header a,
-header a:hover {
-    text-decoration: none;
-    color: #FFF;
-}
-
-ul li {
-    background: #444;
-    color: #DDD;
-    list-style-type: none;
-    font-size: 32px;
-    border: 1px solid #555;
-}
-
-ul li:hover {
-    background: #DDD;
-    color: #444;
-    box-shadow: 3px 5px 3px;
-}
-
-#page-title {
-    width: 100%;
-    text-align: center;
-    z-index: -10;
-    font-weight: 100;
-}
-
-#page-title span {
-    font-size: 32px;
-    border-right: 1px solid #AAA;
-    border-left: 1px solid #AAA;
-    border-bottom: 1px solid #AAA;
-    border-radius: 0px 0px 10px 10px;
-    padding: 10px 45px;
-    display: inline-block;
-    box-shadow: -1px 4px 20px 0px;
-}
-
-#container {
-    padding: 0px;
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 150px;
-}
-
-footer {
-    background: #2694D2;
-    min-height: 100px;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    z-index: -10;
-}
-
-footer p {
-    text-align: center;
-    font-size: 24px;
-    color: #ddd;
-}
-
-div#list {
-    width: 100%;
-}
-
-#container #main ul {
-    padding: 0;
-    text-align: center;
-    margin: auto;
-}
-
-#container #main ul li {
-    padding: 70px 0px;
-    text-align: center;
-    margin: 10px;
-    display: inline-block;
-    position: relative;
-}
-
-#notification_icon {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background: #E8494D;
-    color: #DDD;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-.row {
-    margin: auto;
-}
-
-#container #units ul li {
-    vertical-align: center;
-    padding: 50px;
-    text-align: center;
-    box-shadow: 3px 5px 3px;
-    margin: 20px;
-    display: inline-block;
-    position: relative;
-}
-
-#container #unit #unit_info {
-    text-align: right;
-    display: block;
-}
-
-#units ul {
-    width: 100%;
-    text-align: right;
-    overflow-x: scroll;
-    white-space: nowrap;
-}
-
-#addNewShopBTN,
-#addNewContractBTN,
-#addNewUnitBTN {
-    font-size: 96px;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #FFF;
-    border: 1px solid #000;
-    border-radius: 50px;
-}
-
-#addShopForm {
-    position: fixed;
-    bottom: 120px;
-    left: 0;
-    padding: 10px;
-    text-align: center;
-    background-color: #EEEEEE;
-    border: 1px solid #555;
-    border-radius: 10px;
-    margin: 10px;
-    display: none;
-}
-
-#addShopForm input[type='text'],
-#addUnitForm input[type='text'] {
-    padding: 20px;
-    margin: 20px 0px 20px 20px;
-}
-
-#addContractForm {
-    position: fixed;
-    bottom: 120px;
-    left: 0;
-    padding: 10px;
-    text-align: center;
-    background-color: #EEEEEE;
-    border: 1px solid #555;
-    border-radius: 10px;
-    margin: 10px;
-    display: none;
-}
-
-#addContractForm input[type='text'] {
-    padding: 20px;
-    margin: 20px 0px 20px 20px;
-}
-
-#addContractForm span {
-    display: block !important;
-    margin: 10px;
-}
-
-#container #shops {
-    overflow: hidden;
-}
-
-#container #shops ul {
-    text-align: center;
-    padding: 0px;
-}
-
-#container #shops ul li {
-    vertical-align: center;
-    padding: 50px;
-    text-align: center;
-    margin: 20px;
-    display: inline-block;
-    position: relative;
-}
-
-#container #shops ul li:hover .title {
-    color: #000 !important;
-}
-
-#container #shops ul li .deleteBtn,
-#container #units ul li .deleteBtn {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 0px;
-    color: red;
-    background: #DDD;
-}
-
-#shop {}
-
-#shopInformationForm {
-    text-align: right;
-    padding: 15px 30px 15px 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#shopInformationForm input[type='submit'] {
-    margin: auto;
-    display: block;
-    padding: 10px;
-}
-
-#shop .payment {
-    padding: 10px;
-}
-
-#shop .payment .title {
-    display: block;
-    font-size: 24px;
-}
-
-#shop .payment .paymentFeild {
-    display: inline-block;
-}
-
-#shop #documentImages {
-    text-align: center;
-}
-
-#shop #documentImages .uploadPDFSection {
-    margin-top: 25px;
-}
-
-#shop #documentImages h4 {
-    padding: 10px;
-}
-
-#shop input[type='file'] {
-    display: none;
-}
-
-.fileName {
-    background-color: #17a2b8;
-    color: #EEE;
-    margin: 10px auto;
-    padding: 10px;
-    display: inline-block;
-    font-size: 24px;
-    font-family: Tahoma;
-    border: 1px solid #BBB;
-    border-radius: 5px;
-    box-shadow: 1px 2px 7px;
-}
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content/Box */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#unit {}
-
-#addUnitForm {
-    position: fixed;
-    bottom: 120px;
-    left: 0;
-    padding: 10px;
-    text-align: center;
-    background-color: #EEEEEE;
-    border: 1px solid #555;
-    border-radius: 10px;
-    margin: 10px;
-    display: none;
-}
-
-#unit #documentImages .uploadPDFSection {
-    margin-top: 25px;
-}
-
-#unitInformationForm {
-    text-align: right;
-    padding: 15px 30px 15px 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#unitInformationForm input[type='submit'] {
-    margin: auto;
-    display: block;
-    padding: 10px;
-}
-
-#unit .payment {
-    padding: 10px;
-}
-
-#unit .payment .title {
-    display: block;
-    font-size: 24px;
-}
-
-#unit .payment .paymentFeild {
-    display: inline-block;
-}
-
-#unit #documentImages {
-    text-align: center;
-}
-
-#unit #documentImages h4 {
-    padding: 10px;
-}
-
-#unit input[type='file'] {
-    display: none;
-}
-
-#container #contracts ul {
-    text-align: center;
-    padding: 0px;
-}
-
-#container #contracts ul li {
-    padding: 50px;
-    text-align: center;
-    margin: 20px;
-    display: inline-block;
-    position: relative;
-}
-
-#container #shopContracts h3 {
-    display: block;
-    width: 100%;
-    text-align: right;
-}
-
-#container #shopContracts #section {
-    text-align: center;
-    display: block;
-    margin: auto;
-}
-
-#container #shopContracts #section form {
-    margin: 10px;
-}
-
-#container #shopContracts #section form input {
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#container #shopContracts #section li {
-    padding: 10px;
-    margin: 10px;
-    background: #555;
-    color: #DDD;
-    border-radius: 10px;
-    font-family: tahoma;
-    font-size: 18px;
-    list-style-type: none;
-    position: relative;
-}
-
-#container #shopContracts #section li .operations span,
-#container #unitContracts #section li .operations span {
-    margin-top: 10px;
-}
-
-#container #shopContracts #section li p {
-    text-align: right;
-    font-family: tahoma;
-    font-size: 24px;
-}
-
-#container #unitContracts h3 {
-    display: block;
-    width: 100%;
-    text-align: right;
-}
-
-#container #unitContracts #section {
-    text-align: center;
-    display: block;
-    margin: auto;
-}
-
-#container #unitContracts #section form {
-    margin: 10px;
-}
-
-#container #unitContracts #section form input {
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#container #unitContracts #section li {
-    padding: 10px;
-    margin: 10px;
-    background: #555;
-    color: #DDD;
-    border-radius: 10px;
-    font-family: tahoma;
-    font-size: 18px;
-    list-style-type: none;
-    position: relative;
-}
-
-#container #unitContracts #section li p {
-    text-align: right;
-    font-family: tahoma;
-    font-size: 24px;
-}
-
-#container #notifications h3 {
-    display: block;
-    width: 100%;
-    text-align: right;
-}
-
-#container #notifications #section {
-    text-align: center;
-    display: block;
-    margin: auto;
-}
-
-#container #notifications #section li {
-    padding: 10px;
-    margin: 10px;
-    background: #555;
-    color: #DDD;
-    border-radius: 10px;
-    font-family: tahoma;
-    font-size: 18px;
-    list-style-type: none;
-    position: relative;
-    text-align: right;
-}
-
-#container #notifications #section li .operations {
-    text-align: center;
-}
-
-#container #notifications #section li .operations span {
-    margin-top: 10px;
-}
-
-#container #notifications #section li p {
-    text-align: right;
-    font-family: tahoma;
-    font-size: 24px;
-}
-
-#container #notifications .rightSection {
-    display: inline-block;
-}
-
-#container #notifications .leftSection {
-    display: inline-block;
-    vertical-align: top;
-}
+                html {
+                    direction: rtl;
+                }
+                
+                header {
+                    min-height: 40px;
+                    display: flex;
+                    background: #1DA1F2;
+                    padding: 30px 0px;
+                    font-size: 32px;
+                    border-bottom: 1px dashed #333;
+                    box-shadow: 2px 1px 16px 0px;
+                }
+                
+                @media print {
+                    header {
+                        display: none;
+                    }
+                    #info #page-title span {
+                        border: 1px solid #555;
+                        border-radius: 5px;
+                    }
+                }
+                
+                header #rightSection {
+                    text-align: right;
+                }
+                
+                header #leftSection {
+                    text-align: left;
+                }
+                
+                a {
+                    color: #f1f1f1;
+                }
+                
+                a:hover {
+                    text-decoration: none;
+                }
+                
+                header a,
+                header a:hover {
+                    text-decoration: none;
+                    color: #FFF;
+                }
+                
+                #units ul li,
+                #shops ul li,
+                #main ul li,
+                #contracts ul li {
+                    background: #444;
+                    color: #DDD;
+                    list-style-type: none;
+                    font-size: 32px;
+                    border: 1px solid #555;
+                }
+                
+                #units ul li:hover,
+                #shops ul li:hover,
+                #main ul li:hover,
+                #contracts ul li:hover {
+                    background: #DDD;
+                    color: #444;
+                    box-shadow: 3px 5px 3px;
+                }
+                
+                ul li:hover a {
+                    color: #444;
+                }
+                
+                #page-title {
+                    width: 100%;
+                    text-align: center;
+                    z-index: -10;
+                    font-weight: 100;
+                }
+                
+                #page-title span {
+                    font-size: 32px;
+                    border-right: 1px solid #AAA;
+                    border-left: 1px solid #AAA;
+                    border-bottom: 1px solid #AAA;
+                    border-radius: 0px 0px 10px 10px;
+                    padding: 10px 45px;
+                    display: inline-block;
+                    box-shadow: -1px 4px 20px 0px;
+                }
+                
+                .btn-primary {
+                    background-color: #1DA1F2;
+                }
+                
+                .btn-success {
+                    background-color: #0F9D58;
+                }
+                
+                #container {
+                    padding: 0px;
+                    min-height: 100%;
+                    position: relative;
+                    padding-bottom: 150px;
+                }
+                
+                footer {
+                    background: #1DA1F2;
+                    min-height: 100px;
+                    width: 100%;
+                    bottom: 0;
+                    position: absolute;
+                    z-index: -10;
+                }
+                
+                footer p {
+                    text-align: center;
+                    font-size: 24px;
+                    color: #ffffff;
+                }
+                
+                div#list {
+                    width: 100%;
+                }
+                
+                #container #main ul {
+                    padding: 0;
+                    text-align: center;
+                    margin: auto;
+                }
+                
+                #container #main ul li {
+                    padding: 70px 0px;
+                    text-align: center;
+                    margin: 10px;
+                    display: inline-block;
+                    position: relative;
+                }
+                
+                #notification_icon {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background: #E8494D;
+                    color: #DDD;
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                }
+                
+                .row {
+                    margin: auto;
+                }
+                
+                #container #units ul li {
+                    vertical-align: center;
+                    padding: 50px;
+                    text-align: center;
+                    box-shadow: 3px 5px 3px;
+                    margin: 20px;
+                    display: inline-block;
+                    position: relative;
+                }
+                
+                #container #unit #unit_info {
+                    text-align: right;
+                    display: block;
+                }
+                
+                #units ul {
+                    width: 100%;
+                    text-align: right;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+                }
+                
+                #addNewShopBTN,
+                #addNewContractBTN,
+                #addNewUnitBTN {
+                    font-size: 96px;
+                    position: fixed;
+                    bottom: 20px;
+                    left: 20px;
+                    background: #FFF;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+                
+                #addShopForm {
+                    position: fixed;
+                    bottom: 120px;
+                    left: 0;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: #EEEEEE;
+                    border: 1px solid #555;
+                    border-radius: 10px;
+                    margin: 10px;
+                    display: none;
+                }
+                
+                #addShopForm input[type='text'],
+                #addUnitForm input[type='text'] {
+                    padding: 20px;
+                    margin: 20px 0px 20px 20px;
+                }
+                
+                #addContractForm {
+                    position: fixed;
+                    bottom: 120px;
+                    left: 0;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: #EEEEEE;
+                    border: 1px solid #555;
+                    border-radius: 10px;
+                    margin: 10px;
+                    display: none;
+                }
+                
+                #addContractForm input[type='text'] {
+                    padding: 20px;
+                    margin: 20px 0px 20px 20px;
+                }
+                
+                #addContractForm span {
+                    display: block !important;
+                    margin: 10px;
+                }
+                
+                #container #shops {
+                    overflow: hidden;
+                }
+                
+                #container #shops ul {
+                    text-align: center;
+                    padding: 0px;
+                }
+                
+                #container #shops ul li {
+                    vertical-align: center;
+                    padding: 50px;
+                    text-align: center;
+                    margin: 20px;
+                    display: inline-block;
+                    position: relative;
+                }
+                
+                #container #shops ul li:hover .title {
+                    color: #000 !important;
+                }
+                
+                #container #shops ul li .deleteBtn,
+                #container #units ul li .deleteBtn {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    border-radius: 0px;
+                    color: red;
+                    background: #DDD;
+                }
+                
+                #shop {}
+                
+                #shopInformationForm {
+                    text-align: right;
+                    padding: 15px 30px 15px 15px;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+                
+                #shopInformationForm input[type='submit'] {
+                    margin: auto;
+                    display: block;
+                    padding: 10px;
+                }
+                
+                #shop .payment {
+                    padding: 10px;
+                }
+                
+                #shop .payment .title {
+                    display: block;
+                    font-size: 24px;
+                }
+                
+                #shop .payment .paymentFeild {
+                    display: inline-block;
+                }
+                
+                #shop #documentImages {
+                    text-align: center;
+                }
+                
+                #shop #documentImages .uploadPDFSection {
+                    margin-top: 25px;
+                }
+                
+                #shop #documentImages h4 {
+                    padding: 10px;
+                }
+                
+                #shop input[type='file'] {
+                    display: none;
+                }
+                
+                .fileName {
+                    background-color: #17a2b8;
+                    color: #EEE;
+                    margin: 10px auto;
+                    padding: 10px;
+                    display: inline-block;
+                    font-size: 24px;
+                    font-family: Tahoma;
+                    border: 1px solid #BBB;
+                    border-radius: 5px;
+                    box-shadow: 1px 2px 7px;
+                }
+                /* The Modal (background) */
+                
+                .modal {
+                    display: none;
+                    /* Hidden by default */
+                    position: fixed;
+                    /* Stay in place */
+                    z-index: 1;
+                    /* Sit on top */
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    /* Full width */
+                    overflow: auto;
+                    /* Enable scroll if needed */
+                    background-color: rgb(0, 0, 0);
+                    /* Fallback color */
+                    background-color: rgba(0, 0, 0, 0.4);
+                    /* Black w/ opacity */
+                }
+                /* Modal Content/Box */
+                
+                .modal-content {
+                    background-color: #fefefe;
+                    margin: 15% auto;
+                    /* 15% from the top and centered */
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 80%;
+                    /* Could be more or less, depending on screen size */
+                }
+                /* The Close Button */
+                
+                .close {
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+                
+                .close:hover,
+                .close:focus {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+                
+                #unit {}
+                
+                #addUnitForm {
+                    position: fixed;
+                    bottom: 120px;
+                    left: 0;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: #EEEEEE;
+                    border: 1px solid #555;
+                    border-radius: 10px;
+                    margin: 10px;
+                    display: none;
+                }
+                
+                #unit #documentImages .uploadPDFSection {
+                    margin-top: 25px;
+                }
+                
+                #unitInformationForm {
+                    text-align: right;
+                    padding: 15px 30px 15px 15px;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+                
+                #unitInformationForm input[type='submit'] {
+                    margin: auto;
+                    display: block;
+                    padding: 10px;
+                }
+                
+                #unit .payment {
+                    padding: 10px;
+                }
+                
+                #unit .payment .title {
+                    display: block;
+                    font-size: 24px;
+                }
+                
+                #unit .payment .paymentFeild {
+                    display: inline-block;
+                }
+                
+                #unit #documentImages {
+                    text-align: center;
+                }
+                
+                #unit #documentImages h4 {
+                    padding: 10px;
+                }
+                
+                #unit input[type='file'] {
+                    display: none;
+                }
+                
+                #container #contracts ul {
+                    text-align: center;
+                    padding: 0px;
+                }
+                
+                #container #contracts ul li {
+                    padding: 50px;
+                    text-align: center;
+                    margin: 20px;
+                    display: inline-block;
+                    position: relative;
+                }
+                
+                #container #shopContracts h3 {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                }
+                
+                #container #shopContracts #section {
+                    text-align: center;
+                    display: block;
+                    margin: auto;
+                }
+                
+                #container #shopContracts #section form {
+                    margin: 10px;
+                }
+                
+                #container #shopContracts #section form input {
+                    width: auto;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                
+                #container #shopContracts #section li {
+                    padding: 10px;
+                    margin: 10px;
+                    background: #555;
+                    color: #DDD;
+                    border-radius: 10px;
+                    font-family: tahoma;
+                    font-size: 18px;
+                    list-style-type: none;
+                    position: relative;
+                }
+                
+                #container #shopContracts #section li .operations span,
+                #container #unitContracts #section li .operations span {
+                    margin-top: 10px;
+                }
+                
+                #container #shopContracts #section li p {
+                    text-align: right;
+                    font-family: tahoma;
+                    font-size: 24px;
+                }
+                
+                #container #unitContracts h3 {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                }
+                
+                #container #unitContracts #section {
+                    text-align: center;
+                    display: block;
+                    margin: auto;
+                }
+                
+                #container #unitContracts #section form {
+                    margin: 10px;
+                }
+                
+                #container #unitContracts #section form input {
+                    width: auto;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                
+                #container #unitContracts #section li {
+                    padding: 10px;
+                    margin: 10px;
+                    background: #555;
+                    color: #DDD;
+                    border-radius: 10px;
+                    font-family: tahoma;
+                    font-size: 18px;
+                    list-style-type: none;
+                    position: relative;
+                }
+                
+                #container #unitContracts #section li p {
+                    text-align: right;
+                    font-family: tahoma;
+                    font-size: 24px;
+                }
+                
+                #container #notifications h3 {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                }
+                
+                #container #notifications #section {
+                    text-align: center;
+                    display: block;
+                    margin: auto;
+                }
+                
+                #container #notifications #section li {
+                    padding: 10px;
+                    margin: 10px;
+                    background: #555;
+                    color: #DDD;
+                    border-radius: 10px;
+                    font-family: tahoma;
+                    font-size: 18px;
+                    list-style-type: none;
+                    position: relative;
+                    text-align: right;
+                }
+                
+                #container #notifications #section li .operations {
+                    text-align: center;
+                }
+                
+                #container #notifications #section li .operations span {
+                    margin-top: 10px;
+                }
+                
+                #container #notifications #section li p {
+                    text-align: right;
+                    font-family: tahoma;
+                    font-size: 24px;
+                }
+                
+                #container #notifications .rightSection {
+                    display: inline-block;
+                }
+                
+                #container #notifications .leftSection {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                
+                #report {
+                    color: #444444;
+                    border: 1px solid #444;
+                    margin: 50px auto;
+                    border-radius: 4px;
+                    padding: 20px 0px;
+                }
+                
+                #report .info-heading {
+                    font-size: 20px;
+                    padding: 0px 10px;
+                    font-family: tahoma;
+                }
+                
+                #report .info-value {
+                    font-size: 24px;
+                    color: #1DA1F2;
+                }
+                
+                #info #report ul {
+                    list-style-type: none;
+                }
+                
+                #info #report ul li {
+                    position: relative;
+                    padding-right: 20px;
+                }
+                
+                #info #report ul .payment-number {
+                    position: absolute;
+                    height: 35px;
+                    width: 35px;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                    text-align: center;
+                    vertical-align: middle;
+                    margin-right: -45px;
+                    top: 10px;
+                    background-color: #1DA1F2;
+                    color: #fff;
+                    font-size: 20px;
+                }
+                
+                #info #report ul li .payment-price .item-heading,
+                #info #report ul li .payment-price .item-value,
+                #info #report ul li .payment-date .item-heading,
+                #info #report ul li .payment-date .item-value {
+                    display: block;
+                }
+                
+                #info #report ul li .payment-date,
+                #info #report ul li .payment-price {
+                    display: inline-block;
+                }
+                
+                #info #report ul li .payment-price .item-heading,
+                #info #report ul li .payment-date .item-heading {
+                    font-size: 20px;
+                    padding: 0px 10px;
+                    font-family: tahoma;
+                }
+                
+                #info #report ul li .payment-price .item-value,
+                #info #report ul li .payment-date .item-value {
+                    font-size: 24px;
+                    color: #1DA1F2;
+                    text-align: center;
+                }
